@@ -1,0 +1,55 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ProjectSixthSemester.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> Crown & Coffee</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/login.css" rel="stylesheet" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%-- Only essential WebForms scripts --%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <%-- Remove scripts like GridView.js, DetailsView.js, TreeView.js if you don't use those controls --%>
+            </Scripts>
+        </asp:ScriptManager>
+
+        <nav id="navbar">
+            <br class="Apple-interchange-newline">
+            <div class="nav-container">
+                <ul class="nav-list">
+                    <li class="nav-item" ><a class="nav-link" runat="server" href="~/Home"><img src="image/logo.png" alt="logo" style="height:65px; width:240px;"/></a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/Home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Crown’s Delights</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Leave a Note</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="~/About">Our Story</a></li>
+                    <li class="nav-item"><a class="nav-link" runat="server" href="LoginPage.aspx">Become Family</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Crown & Coffee Café</p>
+            </footer>
+        </div>
+    </form>
+    <script src='<%= ResolveUrl("~/Scripts/script.js") %>' defer></script>
+</body>
+</html>
